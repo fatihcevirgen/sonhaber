@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="SonHaber - Gündem, ekonomi, dünya, teknoloji ve spor haberleri.">
+<meta name="theme-color" content="#090b0f">
+<title>SONHABER | Gerçeğin Peşinde</title>
+<style>
+:root{--bg:#090b0f;--panel:#151922;--line:#292f39;--muted:#a1a8b3;--red:#ed343c}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#f5f6f8;font:15px Arial,sans-serif}
+header,.wrap,footer{max-width:1150px;margin:auto;padding-left:22px;padding-right:22px}
+.top{background:#151820;color:#aeb5c0;font-size:12px;padding:10px 22px}.top span{max-width:1106px;display:block;margin:auto}
+header{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:25px;padding-bottom:22px;border-bottom:1px solid var(--line)}
+.logo{font-size:34px;font-weight:900;letter-spacing:-2px}.logo span{color:var(--red)}.tagline{font-size:10px;letter-spacing:3px;color:var(--muted);margin-top:4px}
+.search{display:flex;background:#1a1f29;border:1px solid #343b48;border-radius:7px;overflow:hidden}.search input{background:none;border:0;color:white;padding:12px;outline:0;width:230px}.search button,.primary{border:0;background:var(--red);color:white;padding:0 16px;cursor:pointer;font-weight:bold}
+nav{display:flex;overflow:auto;border-bottom:1px solid var(--line);padding:0 max(22px,calc((100% - 1106px)/2));white-space:nowrap}
+nav button{background:none;border:0;color:#c0c5ce;padding:17px 14px;cursor:pointer}nav button.active,nav button:hover{color:white;border-bottom:2px solid var(--red)}
+.breaking{max-width:1106px;margin:20px auto;padding:12px 15px;background:#171b24;border:1px solid var(--line);border-radius:7px;font-size:12px}.breaking b,.tag{background:var(--red);color:white;padding:6px 9px;border-radius:3px;font-size:10px;margin-right:10px}
+.wrap{padding-top:12px;padding-bottom:45px}.heading{font-size:18px;margin:22px 0 16px;font-weight:bold}.heading:before{content:"";display:inline-block;width:4px;height:19px;background:var(--red);margin-right:10px;vertical-align:middle}
+.hero{display:grid;grid-template-columns:1.6fr 1fr;gap:15px}.lead,.side article{cursor:pointer;border-radius:9px;overflow:hidden;display:flex;align-items:end;padding:25px;background:linear-gradient(0deg,#080a0e 0%,transparent 90%),linear-gradient(130deg,#35495a,#1a202b 58%,#5a252b);min-height:330px}.lead h1{font-size:clamp(25px,4vw,39px);line-height:1.12;margin:12px 0}.side{display:grid;gap:15px}.side article{min-height:157px;padding:18px;background:linear-gradient(0deg,#080a0e,transparent),linear-gradient(120deg,#3a3430,#1c202a)}.side article:nth-child(2){background:linear-gradient(0deg,#080a0e,transparent),linear-gradient(120deg,#263c42,#1c202a)}.side h2{font-size:18px;line-height:1.3;margin:9px 0}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}.filters button{background:#191e27;border:1px solid #303744;color:#c2c7d0;padding:8px 13px;border-radius:20px;cursor:pointer}.filters button.active{background:#a91f28;color:white;border-color:#a91f28}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.card{background:#131720;border:1px solid var(--line);border-radius:8px;overflow:hidden}.visual{height:135px;display:grid;place-items:center;font-size:48px;background:linear-gradient(130deg,#283d4a,#171d27)}.card:nth-child(3n+2) .visual{background:linear-gradient(130deg,#49382f,#191d27)}.card:nth-child(3n) .visual{background:linear-gradient(130deg,#263e36,#191d27)}.body{padding:15px}.body h3{font-size:16px;line-height:1.4;margin:10px 0}.body p{font-size:12px;color:var(--muted);line-height:1.6}.meta{font-size:11px;color:#929aa7}.card-actions{display:flex;justify-content:space-between;align-items:center}.save{border:0;background:none;color:#c1c6ce;font-size:20px;cursor:pointer}.save.saved{color:#ff5960}.empty{color:var(--muted);padding:35px;text-align:center;grid-column:1/-1}
+.newsletter{margin-top:35px;padding:25px;background:#21171c;border:1px solid #39303a;border-radius:8px;display:flex;justify-content:space-between;align-items:center;gap:15px}.newsletter p{color:var(--muted);font-size:12px}.newsletter button{padding:12px 16px;border:0;background:var(--red);color:white;border-radius:5px;cursor:pointer}
+footer{border-top:1px solid var(--line);padding-top:25px;padding-bottom:30px;color:#969daa;font-size:12px;display:flex;justify-content:space-between;gap:20px}.modal{display:none;position:fixed;inset:0;background:#000c;z-index:5;padding:20px;align-items:center;justify-content:center}.modal.open{display:flex}.dialog{max-width:650px;width:100%;max-height:85vh;overflow:auto;background:#171c26;border:1px solid #3b4350;border-radius:10px;padding:25px}.dialog button{float:right;background:#303744;color:white;border:0;padding:9px;cursor:pointer}.dialog p{line-height:1.8;color:#c5cad2}
+@media(max-width:700px){header{flex-wrap:wrap}.search{width:100%}.search input{width:100%}.hero{grid-template-columns:1fr}.lead{min-height:270px}.side{grid-template-columns:1fr 1fr}.side article{min-height:155px;padding:13px}.side h2{font-size:15px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.visual{height:110px}}
+@media(max-width:430px){.grid{grid-template-columns:1fr}.side{grid-template-columns:1fr}.side article{min-height:130px}.newsletter,footer{flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
+<div class="top"><span>● SONHABER &nbsp; | &nbsp; Bağımsız haberin adresi</span></div>
+<header><div><div class="logo">SON<span>HABER</span></div><div class="tagline">GERÇEĞİN PEŞİNDE</div></div><div class="search"><input id="search" placeholder="Haberlerde ara..." aria-label="Haberlerde ara"><button id="searchBtn">ARA</button></div></header>
+<nav id="nav"><button class="active" data-cat="Tümü">ANA SAYFA</button><button data-cat="Gündem">GÜNDEM</button><button data-cat="Ekonomi">EKONOMİ</button><button data-cat="Dünya">DÜNYA</button><button data-cat="Teknoloji">TEKNOLOJİ</button><button data-cat="Spor">SPOR</button><button data-cat="Yaşam">YAŞAM</button><button data-cat="Kaydedilenler">KAYDETTİKLERİM</button></nav>
+<div class="breaking"><b>SON DAKİKA</b> SonHaber'e hoş geldiniz. Gündemin öne çıkan başlıklarını keşfedin.</div>
+<main class="wrap">
+<div class="heading">Günün manşeti</div>
+<section class="hero">
+<article class="lead" data-open="0"><div><span class="tag">GÜNDEM</span><h1>Değişen dünyada yeni nesil şehirler nasıl şekilleniyor?</h1><div class="meta">SONHABER EDİTÖRLERİ · ÖZEL DOSYA</div></div></article>
+<div class="side"><article data-open="1"><div><span class="tag">TEKNOLOJİ</span><h2>Yapay zekâ günlük hayatın geleceğini nasıl değiştiriyor?</h2><div class="meta">Teknoloji · 5 dk okuma</div></div></article><article data-open="2"><div><span class="tag">EKONOMİ</span><h2>Yeni dönemde tasarruf ve yatırım alışkanlıkları</h2><div class="meta">Ekonomi · Analiz</div></div></article></div>
+</section>
+<div class="heading" id="heading">Öne çıkan haberler</div><div class="filters" id="filters"><button class="active" data-cat="Tümü">Tümü</button><button data-cat="Gündem">Gündem</button><button data-cat="Ekonomi">Ekonomi</button><button data-cat="Teknoloji">Teknoloji</button><button data-cat="Spor">Spor</button><button data-cat="Dünya">Dünya</button><button data-cat="Yaşam">Yaşam</button></div>
+<section class="grid" id="grid"></section>
+<section class="newsletter"><div><h2>Gündemden haberdar ol!</h2><p>SonHaber bülteniyle öne çıkan içerikleri takip et.</p></div><button onclick="alert('Bülten aboneliği yakında aktif olacaktır.')">BÜLTENE KATIL →</button></section>
+</main>
+<footer><div><b style="font-size:18px;color:white">SON<span style="color:#ed343c">HABER</span></b><p>Gerçeğin peşinde, gündemin merkezinde.</p></div><div>© 2026 SonHaber<br>Bu sitedeki haberler demo amaçlı örnek içeriklerdir.</div></footer>
+<div class="modal" id="modal"><div class="dialog"><button id="close">KAPAT ✕</button><div id="detail"></div></div></div>
+<script>
+const articles=[
+{cat:'Gündem',title:'Değişen dünyada yeni nesil şehirler nasıl şekilleniyor?',desc:'Akıllı ulaşım, yeşil alanlar ve dijital altyapı yatırımları geleceğin şehirlerini yeniden tanımlıyor.',icon:'🏙️'},
+{cat:'Teknoloji',title:'Yapay zekâ günlük hayatın geleceğini nasıl değiştiriyor?',desc:'Dijital asistanlardan üretim teknolojilerine uzanan dönüşüm, yaşam ve çalışma alışkanlıklarını etkiliyor.',icon:'🤖'},
+{cat:'Ekonomi',title:'Yeni dönemde tasarruf ve yatırım alışkanlıkları',desc:'Finansal okuryazarlık, bütçe planlaması ve uzun vadeli düşünmek ekonomik kararların merkezinde.',icon:'📈'},
+{cat:'Spor',title:'Genç sporcuların yetişmesinde altyapının önemi',desc:'Kulüplerin altyapı yatırımları, sporun geleceğine ve yeni yeteneklerin gelişimine katkı sağlıyor.',icon:'⚽'},
+{cat:'Dünya',title:'Küresel iş birliği neden her zamankinden önemli?',desc:'İklim, enerji ve teknoloji alanlarında uluslararası ortaklıklar geleceğin temel başlıkları arasında.',icon:'🌍'},
+{cat:'Yaşam',title:'Daha dengeli bir yaşam için küçük alışkanlıklar',desc:'Günlük planlama, hareket ve dijital molalar yaşam kalitesini artırmaya yardımcı olabilir.',icon:'🌿'},
+{cat:'Teknoloji',title:'Siber güvenlikte bireysel önlemler neden önemli?',desc:'Güçlü parolalar ve çok faktörlü doğrulama dijital hesapların korunmasında önemli rol oynuyor.',icon:'🔐'},
+{cat:'Ekonomi',title:'Girişimcilik ekosisteminde yeni fırsatlar',desc:'Yenilikçi fikirler, doğru iş modeli ve sürdürülebilir büyüme girişimciliğin temel unsurları.',icon:'💼'},
+{cat:'Kültür',title:'Kitapların ve kütüphanelerin değişen dünyadaki yeri',desc:'Yeni nesil okuma alışkanlıkları kültür dünyasını dönüştürürken kütüphaneler önemini koruyor.',icon:'📚'}
+];
+let category='Tümü',query='',saved=[];
+const grid=document.getElementById('grid');
+function render(){
+ const list=articles.map((a,id)=>({...a,id})).filter(a=>(category==='Tümü'||(category==='Kaydedilenler'?saved.includes(a.id):a.cat===category))&&(a.title+' '+a.desc+' '+a.cat).toLocaleLowerCase('tr').includes(query.toLocaleLowerCase('tr')));
+ document.getElementById('heading').textContent=category==='Tümü'?'Öne çıkan haberler':category==='Kaydedilenler'?'Kaydettiğim haberler':category+' haberleri';
+ grid.innerHTML=list.length?list.map(a=>`<article class="card" data-open="${a.id}"><div class="visual">${a.icon}</div><div class="body"><span class="tag">${a.cat.toLocaleUpperCase('tr')}</span><h3>${a.title}</h3><p>${a.desc}</p><div class="card-actions"><span class="meta">SONHABER · ÖRNEK İÇERİK</span><button class="save ${saved.includes(a.id)?'saved':''}" data-save="${a.id}" aria-label="Kaydet">${saved.includes(a.id)?'♥':'♡'}</button></div></div></article>`).join(''):'<div class="empty">Bu aramayla eşleşen haber bulunamadı.</div>';
+}
+function setCategory(c){category=c;document.querySelectorAll('[data-cat]').forEach(b=>b.classList.toggle('active',b.dataset.cat===c));render()}
+function openArticle(id){const a=articles[id];document.getElementById('detail').innerHTML=`<span class="tag">${a.cat.toLocaleUpperCase('tr')}</span><h2>${a.title}</h2><div class="meta">SONHABER · ÖRNEK İÇERİK</div><div style="font-size:55px;padding:20px 0">${a.icon}</div><p>${a.desc}</p><p>Bu içerik SonHaber demo sitesi için hazırlanmış örnek bir editoryal metindir. Gerçek haber yayını için doğrulanmış kaynaklardan alınan güncel içerikler kullanılmalıdır.</p>`;document.getElementById('modal').classList.add('open')}
+document.getElementById('nav').addEventListener('click',e=>{const b=e.target.closest('[data-cat]');if(b){query='';document.getElementById('search').value='';setCategory(b.dataset.cat)}});
+document.getElementById('filters').addEventListener('click',e=>{const b=e.target.closest('[data-cat]');if(b)setCategory(b.dataset.cat)});
+function search(){query=document.getElementById('search').value;setCategory('Tümü')}
+document.getElementById('searchBtn').addEventListener('click',search);document.getElementById('search').addEventListener('keydown',e=>{if(e.key==='Enter')search()});
+grid.addEventListener('click',e=>{const s=e.target.closest('[data-save]');if(s){const id=+s.dataset.save;saved=saved.includes(id)?saved.filter(x=>x!==id):[...saved,id];render();return}const a=e.target.closest('[data-open]');if(a)openArticle(+a.dataset.open)});
+document.querySelectorAll('.hero [data-open]').forEach(el=>el.addEventListener('click',()=>openArticle(+el.dataset.open)));
+document.getElementById('close').addEventListener('click',()=>document.getElementById('modal').classList.remove('open'));
+document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')e.currentTarget.classList.remove('open')});
+render();
+</script>
+</body></html>
